@@ -33,6 +33,34 @@ migrate_working_dir/
 .pub/
 /build/
 
+# Node
+node_modules/
+package-lock.json
+yarn.lock
+npm-debug.log*
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# VS Code
+.vscode/
+
+# Others
+*.sublime-workspace
+*.sublime-project
+*.code-workspace
+
+# Sensitive files
+keystore/
+local.properties
+
 # Symbolication related
 app.*.symbols
 
