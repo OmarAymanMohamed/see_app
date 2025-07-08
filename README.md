@@ -1,3 +1,14 @@
+<!-- Project Banner -->
+<p align="center">
+  <img src="https://placehold.co/600x120?text=SEE+App+Logo" alt="SEE App Logo" height="120"/>
+</p>
+
+<p align="center">
+  <a href="https://github.com/OmarAymanMohamed/see_app/actions"><img src="https://img.shields.io/github/actions/workflow/status/OmarAymanMohamed/see_app/flutter.yml?branch=main&label=build" alt="Build Status"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/OmarAymanMohamed/see_app" alt="License"></a>
+  <a href="SECURITY.md"><img src="https://img.shields.io/badge/security-policy-blue" alt="Security Policy"></a>
+</p>
+
 # SEE App
 
 A cross-platform Flutter application for therapy, parent, and child engagement, featuring AI-powered insights (Gemini), real-time data, and Firebase integration.
