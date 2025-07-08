@@ -61,6 +61,42 @@ Desktop.ini
 keystore/
 local.properties
 
+# Ignore legacy, diagrams, screenshots, and reports moved to docs
+ALL_FIGURES_REDRAWN.md
+ARCHITECTURE.md
+FIREBASE_RULES_SETUP.md
+FIREBASE_SETUP.md
+IMPORTANT_SECURITY_NOTE.md
+PROJECT_DIAGRAMS.md
+PROJECT_DIAGRAMS_COMPATIBLE.md
+PROJECT_REPORT.md
+RELEASE.md
+THERAPIST_INTERFACE_PLAN.md
+parent_dashboard_patch.txt
+project_report.*
+see_app.iml
+*.aux
+*.log
+*.out
+*.toc
+*.tex
+*.docx
+*.pdf
+Diagrams_Figures/
+redrawn_diagrams/
+missing_diagrams/
+Screenshots/
+svg-inkscape/
+logo/
+
+# Ignore scripts moved to scripts/
+create_response_time_chart.html
+delete_all.js
+delete_all_users.js
+generate_diagrams.html
+generate_response_time_graph.dart
+install_flutter.bat
+
 # Symbolication related
 app.*.symbols
 
