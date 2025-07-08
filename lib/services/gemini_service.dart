@@ -7,8 +7,8 @@ import 'package:http/http.dart' as http;
 
 /// Service for handling Gemini AI-powered content generation and retrieval
 class GeminiService extends ChangeNotifier {
-  // Gemini API key provided by the user
-  static const String _apiKey = 'AIzaSyAxAlWAEZLLxzUV2xXtmir3hPQudFs1Apo';
+  // Gemini API key should be provided securely via environment variable or config file
+  static const String _apiKey = String.fromEnvironment('GEMINI_API_KEY', defaultValue: '');
   
   // Gemini model to use (updated to latest available models)
   static const String _modelName = 'gemini-1.5-flash';
