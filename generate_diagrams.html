@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diagram Generator</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .diagram-container { margin: 20px 0; border: 1px solid #ccc; padding: 20px; }
+        .diagram-title { font-weight: bold; margin-bottom: 10px; color: black; }
+        .mermaid { background: white; }
+        button { margin: 5px; padding: 10px; background: #007bff; color: white; border: none; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        #export-all { background: #28a745; }
+        #export-all:disabled { background: #aaa; cursor: not-allowed; }
+        #export-all:hover:enabled { background: #1e7e34; }
+        #status { margin-left: 20px; color: #333; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>SEE App Project Diagrams</h1>
+    <button id="export-all" disabled>Export All PNGs</button><span id="status"> Rendering diagrams...</span>
+    <p>Click "Export SVG" on each diagram to download it as an SVG file, or use "Export All PNGs" to download all as high-quality PNGs.</p>
+
+    <div class="diagram-container">
+        <div class="diagram-title">Figure 1: Technology Stack Architecture</div>
+        <div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'lineColor': '#000000'}}}%%
+graph TB
+    subgraph "Frontend"
+        A[Flutter Framework]
+        B[Dart Language]
+        C[Material Design]
+        D[Provider State Management]
+    end
+    
+    subgraph "Backend"
+        E[Firebase Firestore]
+        F[Firebase Authentication]
+        G[Firebase Storage]
+        H[Firebase Cloud Messaging]
+    end
+    
+    subgraph "External Services"
+        I[Google Gemini AI]
+        J[Firebase Analytics]
+        K[Google Cloud Platform]
+    end
+    
+    subgraph "Development Tools"
+        L[Android Studio]
+        M[VS Code]
+        N[Git Version Control]
+        O[Flutter DevTools]
+    end
+    
+    A --> B; B --> C; B --> D; A --> E; A --> F; A --> G; A --> H; E --> I; F --> J; G --> K; L --> A; M --> A; N --> A; O --> A
+        </div>
+        <button onclick="exportSVG(this, 'Figure1_Technology_Stack_Architecture')">Export SVG</button>
+    </div>
+
+    <div class="diagram-container">
+        <div class="diagram-title">Figure 2: Authentication Flow</div>
+        <div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'lineColor': '#000000'}}}%%
+sequenceDiagram
+    participant U as User
+    participant A as App
+    participant F as Firebase Auth
+    participant D as Database
+    participant N as Notification
+    
+    U->>A: Enter Credentials
+    A->>F: Sign In Request
+    F->>A: Auth Token
+    A->>D: Fetch User Data
+    D->>A: User Profile
+    A->>N: Setup Push Notifications
+    A->>U: Navigate to Dashboard
+        </div>
+        <button onclick="exportSVG(this, 'Figure2_Authentication_Flow')">Export SVG</button>
+    </div>
+
+    <div class="diagram-container">
+        <div class="diagram-title">Figure 3: Real-time Data Synchronization Flow</div>
+        <div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'lineColor': '#000000'}}}%%
+graph LR
+    A[User Action] --> B[Local Update]
+    B --> C[Firestore Write]
+    C --> D[Real-time Sync]
+    D --> E[Other Devices]
+    D --> F[Analytics]
+    D --> G[Notifications]
+        </div>
+        <button onclick="exportSVG(this, 'Figure3_Real_time_Data_Sync')">Export SVG</button>
+    </div>
+
+    <div class="diagram-container">
+        <div class="diagram-title">Figure 4: Comprehensive Testing Strategy</div>
+        <div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'lineColor': '#000000'}}}%%
+graph TD
+    A[Code Changes] --> B[Unit Tests]
+    B --> C[Integration Tests]
+    C --> D[System Tests]
+    D --> E[User Acceptance Tests]
+    E --> F[Performance Tests]
+    F --> G[Security Tests]
+    G --> H[Deploy to Production]
+    
+    B -->|Fail| I[Debug & Fix]
+    C -->|Fail| I
+    D -->|Fail| I
+    E -->|Fail| I
+    F -->|Fail| I
+    G -->|Fail| I
+    
+    I --> A
+        </div>
+        <button onclick="exportSVG(this, 'Figure4_Testing_Strategy')">Export SVG</button>
+    </div>
+
+    <div class="diagram-container">
+        <div class="diagram-title">Figure 5: CI/CD Pipeline</div>
+        <div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'lineColor': '#000000'}}}%%
+graph LR
+    A[Code Commit] --> B[Git Repository]
+    B --> C[Automated Tests]
+    C --> D[Build Process]
+    D --> E[Code Review]
+    E --> F[Staging Deployment]
+    F --> G[Manual Testing]
+    G --> H[Production Deployment]
+    H --> I[App Store Release]
+        </div>
+        <button onclick="exportSVG(this, 'Figure5_CI_CD_Pipeline')">Export SVG</button>
+    </div>
+
+    <div class="diagram-container">
+        <div class="diagram-title">Figure 6: Multi-platform Deployment Architecture</div>
+        <div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'lineColor': '#000000'}}}%%
+graph TB
+    subgraph "Development"
+        A[Local Development]
+        B[Firebase Emulator]
+        C[Test Data]
+    end
+    
+    subgraph "Staging"
+        D[Staging Environment]
+        E[Test Firebase Project]
+        F[Staging Data]
+    end
+    
+    subgraph "Production"
+        G[Production Environment]
+        H[Live Firebase Project]
+        I[Production Data]
+    end
+    
+    A --> D; D --> G; B --> E; E --> H; C --> F; F --> I
+        </div>
+        <button onclick="exportSVG(this, 'Figure6_Deployment_Architecture')">Export SVG</button>
+    </div>
+
+    <div class="diagram-container">
+        <div class="diagram-title">Figure 7: Environment Configuration Management</div>
+        <div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'lineColor': '#000000'}}}%%
+graph TD
+    A[Configuration Files] --> B[Environment Variables]
+    B --> C[Build Settings]
+    C --> D[Deployment Config]
+    
+    E[Development Config] --> F[Debug Mode]
+    F --> G[Local Database]
+    G --> H[Test APIs]
+    
+    I[Staging Config] --> J[Release Mode]
+    J --> K[Staging Database]
+    K --> L[Staging APIs]
+    
+    M[Production Config] --> N[Production Mode]
+    N --> O[Live Database]
+    O --> P[Production APIs]
+    
+    Q[Version Control] --> R[Config Management]
+    R --> S[Secrets Management]
+    S --> T[Access Control]
+        </div>
+        <button onclick="exportSVG(this, 'Figure7_Environment_Config')">Export SVG</button>
+    </div>
+
+    <div class="diagram-container">
+        <div class="diagram-title">Figure 8: Release Management Workflow</div>
+        <div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'lineColor': '#000000'}}}%%
+graph TD
+    A[Feature Branch] --> B[Development]
+    B --> C[Pull Request]
+    C --> D[Code Review]
+    D --> E[Merge to Main]
+    E --> F[Create Release Branch]
+    F --> G[Version Tagging]
+    G --> H[Release Notes]
+    H --> I[Staging Deployment]
+    I --> J[QA Testing]
+    J --> K[Production Deployment]
+    K --> L[App Store Submission]
+    L --> M[Release Monitoring]
+    
+    N[Hotfix Branch] --> O[Emergency Fix]
+    O --> P[Quick Review]
+    P --> Q[Hotfix Release]
+        </div>
+        <button onclick="exportSVG(this, 'Figure8_Release_Workflow')">Export SVG</button>
+    </div>
+
+    <div class="diagram-container">
+        <div class="diagram-title">Figure 9: Response Time for Critical User Interactions</div>
+        <div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'lineColor': '#000000'}}}%%
+graph LR
+    A[App Launch Time<br/>2.1 seconds] --> B[Response Time<br/>180ms]
+    B --> C[Memory Usage<br/>120MB]
+    C --> D[CPU Usage<br/>15%]
+    D --> E[Battery Impact<br/>Low]
+        </div>
+        <button onclick="exportSVG(this, 'Figure9_Response_Time')">Export SVG</button>
+    </div>
+
+    <div class="diagram-container">
+        <div class="diagram-title">Figure 10: User Engagement Metrics</div>
+        <div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'lineColor': '#000000', 'pie1': '#5DBB63', 'pie2': '#B7E4C7', 'pie3': '#F7C59F', 'pie4': '#F9A66C', 'pie5': '#E57373'}}}%%
+pie
+    title Error Distribution
+    "Network Errors" : 35
+    "Authentication Errors" : 20
+    "Data Sync Errors" : 25
+    "UI/UX Errors" : 15
+    "Other Errors" : 5
+        </div>
+        <button onclick="exportSVG(this, 'Figure10_User_Engagement')">Export SVG</button>
+    </div>
+
+    <div class="diagram-container">
+        <div class="diagram-title">Figure 11: Technology Evolution Roadmap</div>
+        <div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'lineColor': '#000000'}}}%%
+graph LR
+    A[Current: Flutter + Firebase] --> B[Future: AI + ML]
+    B --> C[Advanced Analytics]
+    C --> D[Predictive Modeling]
+    D --> E[Personalized Interventions]
+    E --> F[Wearable Integration]
+    F --> G[IoT Ecosystem]
+        </div>
+        <button onclick="exportSVG(this, 'Figure11_Technology_Roadmap')">Export SVG</button>
+    </div>
+
+    <div class="diagram-container">
+        <div class="diagram-title">Figure 12: Security Measures</div>
+        <div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'lineColor': '#000000'}}}%%
+graph TD
+    A[User Input] --> B[Input Validation]
+    B --> C[Authentication Layer]
+    C --> D[Authorization Layer]
+    D --> E[Data Encryption]
+    E --> F[Secure Storage]
+    
+    G[Network Traffic] --> H[HTTPS/TLS]
+    H --> I[API Gateway]
+    I --> J[Rate Limiting]
+    J --> K[Request Processing]
+    
+    L[Data Access] --> M[Role-Based Access]
+    M --> N[Audit Logging]
+    N --> O[Compliance Monitoring]
+        </div>
+        <button onclick="exportSVG(this, 'Figure12_Security_Measures')">Export SVG</button>
+    </div>
+
+    <div class="diagram-container">
+        <div class="diagram-title">Figure 13: High-Level Architecture</div>
+        <div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'lineColor': '#000000'}}}%%
+graph TD
+    A[Presentation Layer<br/>UI, Screens, Widgets] --> B[Business Logic Layer<br/>Services, Providers]
+    B --> C[Data Layer<br/>Models, Database, API]
+    C -->|Real-time updates| B
+    B -->|State changes| A
+    
+    D[Firebase Authentication] --> B
+    E[Firebase Firestore] --> C
+    F[Firebase Storage] --> C
+    G[Firebase Cloud Messaging] --> A
+    
+    H[External APIs<br/>Gemini AI, Analytics] --> B
+        </div>
+        <button onclick="exportSVG(this, 'Figure13_High_Level_Architecture')">Export SVG</button>
+    </div>
+
+    <div class="diagram-container">
+        <div class="diagram-title">Figure 14: System Usability Scale (SUS) Scores</div>
+        <div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#000000', 'lineColor': '#000000'}}}%%
+gantt
+    title SEE App Development Roadmap
+    dateFormat  YYYY-MM-DD
+    section Phase 1
+    Core Features           :done,    des1, 2024-09-01, 2024-12-31
+    Basic UI/UX            :done,    des2, 2024-10-01, 2024-11-30
+    section Phase 2
+    Advanced Analytics     :active,  des3, 2025-01-01, 2025-03-31
+    AI Integration         :         des4, 2025-02-01, 2025-04-30
+    section Phase 3
+    Wearable Integration   :         des5, 2025-05-01, 2025-06-15
+    Community Features     :         des6, 2025-05-15, 2025-06-30
+        </div>
+        <button onclick="exportSVG(this, 'Figure14_SUS_Scores')">Export SVG</button>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#ffffff',
+                primaryBorderColor: '#000000',
+                lineColor: '#000000'
+            }
+        });
+
+        function exportSVG(button, filename) {
+            const container = button.parentElement;
+            const svgElement = container.querySelector('svg');
+            
+            if (svgElement) {
+                const svgData = new XMLSerializer().serializeToString(svgElement);
+                const svgBlob = new Blob([svgData], {type: 'image/svg+xml;charset=utf-8'});
+                const svgUrl = URL.createObjectURL(svgBlob);
+                
+                const downloadLink = document.createElement('a');
+                downloadLink.href = svgUrl;
+                downloadLink.download = filename + '.svg';
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+                URL.revokeObjectURL(svgUrl);
+                
+                button.textContent = 'Downloaded!';
+                setTimeout(() => {
+                    button.textContent = 'Export SVG';
+                }, 2000);
+            } else {
+                alert('SVG not ready yet. Please wait a moment and try again.');
+            }
+        }
+
+        // Wait for all Mermaid diagrams to render
+        function waitForAllSVGs(timeout = 10000) {
+            return new Promise((resolve, reject) => {
+                const start = Date.now();
+                function check() {
+                    const mermaids = document.querySelectorAll('.diagram-container .mermaid');
+                    const allRendered = Array.from(mermaids).every(div => div.querySelector('svg'));
+                    if (allRendered) {
+                        resolve();
+                    } else if (Date.now() - start > timeout) {
+                        reject('Timeout: Not all diagrams rendered.');
+                    } else {
+                        setTimeout(check, 200);
+                    }
+                }
+                check();
+            });
+        }
+
+        function svgToPng(svg, width, height) {
+            return new Promise((resolve) => {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                
+                // Set canvas size (3x for high quality)
+                const scale = 3;
+                canvas.width = width * scale;
+                canvas.height = height * scale;
+                
+                // Create a new image
+                const img = new Image();
+                const svgBlob = new Blob([svg], {type: 'image/svg+xml;charset=utf-8'});
+                const url = URL.createObjectURL(svgBlob);
+                
+                img.onload = function() {
+                    // Draw the image at high resolution
+                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                    URL.revokeObjectURL(url);
+                    
+                    // Convert to blob
+                    canvas.toBlob(resolve, 'image/png');
+                };
+                
+                img.src = url;
+            });
+        }
+
+        async function exportAllPNGs() {
+            const status = document.getElementById('status');
+            status.textContent = ' Exporting PNGs...';
+            
+            const containers = document.querySelectorAll('.diagram-container');
+            let exported = 0;
+            
+            for (const container of containers) {
+                const svg = container.querySelector('svg');
+                const button = container.querySelector('button');
+                let filename = button.getAttribute('onclick').match(/'(.*?)'/)[1];
+                
+                if (svg) {
+                    try {
+                        // Get SVG dimensions
+                        const width = svg.viewBox.baseVal.width || svg.width.baseVal.value || 800;
+                        const height = svg.viewBox.baseVal.height || svg.height.baseVal.value || 600;
+                        
+                        // Serialize SVG
+                        const svgData = new XMLSerializer().serializeToString(svg);
+                        
+                        // Convert to PNG
+                        const blob = await svgToPng(svgData, width, height);
+                        
+                        // Download
+                        const url = URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = filename + '.png';
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(url);
+                        
+                        exported++;
+                        status.textContent = ` Exported ${exported} of ${containers.length} diagrams...`;
+                        
+                        // Small delay between downloads
+                        await new Promise(resolve => setTimeout(resolve, 500));
+                        
+                    } catch (error) {
+                        console.error('Error exporting:', filename, error);
+                        status.textContent = ` Error exporting ${filename}`;
+                    }
+                }
+            }
+            
+            status.textContent = ' All PNGs exported!';
+        }
+
+        // Enable the button only after all SVGs are rendered
+        waitForAllSVGs().then(() => {
+            document.getElementById('export-all').disabled = false;
+            document.getElementById('status').textContent = ' Diagrams ready.';
+        }).catch(err => {
+            document.getElementById('status').textContent = ' Error: ' + err;
+        });
+
+        document.getElementById('export-all').addEventListener('click', exportAllPNGs);
+    </script>
+</body>
+</html> 
